@@ -2,134 +2,128 @@ import { Terminal, Code, Mic, Lightbulb, Palette, Hammer } from 'lucide-react';
 
 export const eventsData = [
     {
-        id: "dreams-in-digital",
-        title: "Dreams in Digital",
-        tagline: "Use AI tools for storytelling videos",
-        description: "This event challenges participants to become digital directors, using Generative AI to create short films or trailers.",
-        color: "from-blue-500 to-cyan-500",
+        id: "neural-cinema",
+        title: "Neural Cinema",
+        tagline: "Synthesize Dreams into Digital Reality",
+        description: "Direct the next generation of visual media. Utilize advanced generative AI nodes to fabricate short-form narrative streams.",
         icon: Terminal,
         workflow: [
             {
-                title: "Prompt Phase",
-                description: "Participants are given a theme (e.g., \"The Last City on Earth\" or \"Cyberpunk Mythology\")."
+                title: "Inception Protocol",
+                description: "Receive the narrative seed (e.g., 'Neon Deity' or 'Glitch Mythology')."
             },
             {
-                title: "Generation",
-                description: "They use tools like Midjourney/DALL-E for visuals and tools like Runway, Pika, or Sora for video synthesis."
+                title: "Synthesis Phase",
+                description: "Deploy Midjourney/Sora algorithms for visual construction."
             },
             {
-                title: "Assembly",
-                description: "Voices are generated via ElevenLabs, and everything is edited into a 60–90 second clip."
+                title: "Final Render",
+                description: "Compile audio-visual data streams into a 90-second coherent sequence."
             }
         ]
     },
     {
-        id: "tech-coders",
-        title: "Tech Coders",
-        tagline: "Masters of Modern Coding",
-        description: "A high-intensity competitive programming event designed to test logic, speed, and efficiency.",
-        color: "from-green-500 to-emerald-500",
+        id: "algorithm-arena",
+        title: "Algorithm Arena",
+        tagline: "Combat in the Code Colosseum",
+        description: "High-latency is not an option. Optimize logic and execute algorithms in a ruthless competitive environment.",
         icon: Code,
         workflow: [
             {
-                title: "Round 1 (The Sprint)",
-                description: "A time-bound MCQ round focusing on Data Structures, Algorithms, and output prediction."
+                title: "The Sprint",
+                description: "Rapid-fire data structure analysis and output prediction."
             },
             {
-                title: "Round 2 (The Debug)",
-                description: "Participants are given broken code with logical or syntax errors and must fix them to pass hidden test cases."
+                title: "Debug Protocol",
+                description: "Repair corrupted code fragments to restore system functionality."
             },
             {
-                title: "Round 3 (The Grand Finale)",
-                description: "A live \"Battle of Code\" where participants solve complex algorithmic problems on platforms like HackerRank or LeetCode."
+                title: "Grand Battle",
+                description: "Solve complex algorithmic anomalies in real-time."
             }
         ]
     },
     {
-        id: "minute-mania",
-        title: "Minute-Mania",
-        tagline: "Spin the topic, grab the mic, and let your thoughts fly.",
-        description: "A \"Just A Minute\" (JAM) style event focused on communication, spontaneity, and technical knowledge.",
-        color: "from-purple-500 to-pink-500",
+        id: "cyber-speech",
+        title: "Cyber Speech",
+        tagline: "Broadcast Your Truth to the Network",
+        description: "Spontaneous data transmission. You have 60 seconds to upload your thoughts without signal degradation.",
         icon: Mic,
         workflow: [
             {
-                title: "The Spin",
-                description: "A physical or digital wheel is spun to select a tech-related topic (e.g., \"The Ethics of Neuralink\" or \"Why PHP still survives\")."
+                title: "Topic Spin",
+                description: "Randomized selection of a tech-socio subject."
             },
             {
-                title: "The Talk",
-                description: "The speaker must talk for exactly 60 seconds without hesitation, repetition, or deviation."
+                title: "Transmission",
+                description: "60 seconds of uninterrupted flow. No stutter, no repetition."
             },
             {
-                title: "The Challenge",
-                description: "Other participants can \"object\" if the speaker stammers or goes off-topic to steal points."
+                title: "Interference",
+                description: "Rivals can jam your signal (object) for technical faults."
             }
         ]
     },
     {
-        id: "exhibit-innovation",
-        title: "Exhibit Innovation",
-        tagline: "Think beyond boundaries and ideas.",
-        description: "A classic project expo where hardware meets software.",
-        color: "from-yellow-500 to-orange-500",
+        id: "prototype-expo",
+        title: "Prototype Expo",
+        tagline: "Manifest Hardware from the Ether",
+        description: "Showcase physical and digital artifacts. Push the boundaries of current-gen technology.",
         icon: Lightbulb,
         workflow: [
             {
-                title: "Abstract Submission",
-                description: "Teams submit a one-page pitch of their prototype."
+                title: "Blueprint submission",
+                description: "Upload abstract design documents."
             },
             {
-                title: "Stall Setup",
-                description: "Selected teams set up a physical booth with their hardware/software running."
+                title: "Deployment",
+                description: "Setup physical manifestation of the prototype."
             },
             {
-                title: "Live Demo",
-                description: "Judges move from stall to stall for a 5-minute demonstration followed by a Q&A."
+                title: "System Demo",
+                description: "Live execution for the high council (Judges)."
             }
         ]
     },
     {
-        id: "art-attack",
-        title: "Art Attack",
-        tagline: "Unleashing creativity through poster design",
-        description: "A graphic design competition focused on visual communication and branding.",
-        color: "from-red-500 to-rose-500",
+        id: "visual-syntax",
+        title: "Visual Syntax",
+        tagline: "Construct Meaning through Design",
+        description: "Graphic design is the language of the future. Create propagandist or corporate aesthetic assets.",
         icon: Palette,
         workflow: [
             {
                 title: "The Brief",
-                description: "Participants are given a mock brand or a social cause (e.g., \"A Marketing Poster for a Mars Tourism Agency\")."
+                description: "Receive client specifications for a brand or cause."
             },
             {
-                title: "Design Phase",
-                description: "Using tools like Photoshop, Canva, or Illustrator, participants create a high-resolution poster."
+                title: "Design Matrix",
+                description: "Fabricate high-res visual assets using digital tools."
             },
             {
-                title: "The Pitch",
-                description: "A brief 1-minute explanation of why they chose specific colors, typography, and layouts."
+                title: "Pitch",
+                description: "Explain the psychological impact of your design choices."
             }
         ]
     },
     {
-        id: "innov-forge",
-        title: "Innov Forge",
-        tagline: "Paper presentation on innovative ideas",
-        description: "A formal academic event for presenting research and theoretical breakthroughs.",
-        color: "from-indigo-500 to-violet-500",
+        id: "research-nexus",
+        title: "Research Nexus",
+        tagline: "Expand the Knowledge Base",
+        description: "Formal presentation of theoretical constructs and experimental data.",
         icon: Hammer,
         workflow: [
             {
-                title: "Paper Review",
-                description: "Participants submit a research paper following IEEE/APA formats."
+                title: "Data Upload",
+                description: "Submit IEEE standard research documents."
             },
             {
                 title: "Presentation",
-                description: "A 7-minute slideshow (PPT) explaining the problem statement, methodology, and expected results."
+                description: "Visual data dump explaining methodology and results."
             },
             {
                 title: "Defense",
-                description: "A 3-minute \"Defense\" round where judges and the audience ask critical questions."
+                description: "Withstand scrutiny from the review algorithm."
             }
         ]
     }

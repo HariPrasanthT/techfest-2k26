@@ -11,7 +11,7 @@ interface EventData {
     title: string;
     tagline: string;
     description: string;
-    color: string;
+    color?: string;
     icon: any; // Using any for simplicity with Lucide icons passed as props/components
     workflow: WorkflowStep[];
 }
@@ -24,65 +24,81 @@ interface EventDetailViewProps {
 const EventDetailView = ({ event, onBack }: EventDetailViewProps) => {
     return (
         <motion.div
-            initial={{ x: '100%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: '100%', opacity: 0 }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
         >
-            <div className="relative w-full max-w-6xl h-[90vh] bg-black/90 border border-neon-green rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-[0_0_50px_rgba(57,255,20,0.15)]">
+            {/* Background Grid */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(57,255,20,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(57,255,20,0.05)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
+            <motion.div
+                initial={{ scale: 0.9, y: 50 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 50 }}
+                className="relative w-full max-w-6xl h-[90vh] bg-black border-4 border-cyber-green flex flex-col md:flex-row shadow-[0_0_50px_rgba(57,255,20,0.3)] clip-corner-1"
+            >
                 {/* Close Button Mobile */}
                 <button
                     onClick={onBack}
-                    className="md:hidden absolute top-4 left-4 z-50 p-2 bg-black/50 border border-neon-green/50 rounded-full text-neon-green"
+                    className="md:hidden absolute top-4 left-4 z-50 p-2 bg-black border border-cyber-green text-cyber-green"
                 >
                     <ArrowLeft className="w-6 h-6" />
                 </button>
 
                 {/* Left Side: Info */}
-                <div className="w-full md:w-1/3 p-8 border-b md:border-b-0 md:border-r border-neon-green/20 relative overflow-hidden flex flex-col justify-center">
-                    {/* Watermark Icon */}
-                    <div className="absolute -left-20 -bottom-20 opacity-5 pointer-events-none">
-                        <event.icon className="w-96 h-96 text-neon-green" />
-                    </div>
+                <div className="w-full md:w-1/3 p-8 border-b-4 md:border-b-0 md:border-r-4 border-gray-800 relative overflow-hidden flex flex-col justify-center bg-black">
+                    {/* Decorative Elements */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-cyber-green" />
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 }}
                         className="relative z-10"
                     >
-                        <h2 className="text-4xl md:text-5xl font-orbitron font-bold text-neon-green mb-4 drop-shadow-[0_0_10px_rgba(57,255,20,0.5)]">
+                        <div className="flex items-center gap-2 mb-4">
+                            <div className="w-3 h-3 bg-cyber-green animate-pulse" />
+                            <span className="text-cyber-green text-xs font-mono tracking-widest">CLASSIFIED EVENT DATA</span>
+                        </div>
+
+                        <h2 className="text-4xl md:text-5xl font-orbitron font-black text-white mb-4 uppercase leading-none">
                             {event.title}
                         </h2>
-                        <p className="text-xl text-gray-300 italic mb-6 font-light border-l-2 border-neon-green pl-4">
-                            &quot;{event.tagline}&quot;
-                        </p>
-                        <p className="text-gray-400 leading-relaxed mb-8">
+
+                        <div className="flex items-center gap-2 mb-8">
+                            <div className="h-[2px] w-12 bg-cyber-cyan" />
+                            <p className="text-xl text-cyber-cyan font-rajdhani font-bold italic">
+                                &quot;{event.tagline}&quot;
+                            </p>
+                        </div>
+
+                        <p className="text-gray-400 font-rajdhani text-lg leading-relaxed mb-12 border-l-2 border-gray-800 pl-4">
                             {event.description}
                         </p>
 
                         <button
                             onClick={onBack}
-                            className="hidden md:flex items-center gap-2 text-neon-green hover:text-white transition-colors group"
+                            className="hidden md:flex items-center gap-4 text-cyber-green hover:text-white transition-colors group font-orbitron tracking-widest text-sm"
                         >
-                            <ArrowLeft className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" />
-                            <span className="font-orbitron tracking-wider">RETURN TO EVENTS</span>
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="border-b border-cyber-green group-hover:border-white transition-colors">ABORT_VIEW</span>
                         </button>
                     </motion.div>
                 </div>
 
                 {/* Right Side: Workflow */}
-                <div className="w-full md:w-2/3 p-8 bg-gradient-to-br from-gray-900/50 to-black overflow-y-auto">
-                    <h3 className="text-2xl font-orbitron text-white mb-8 flex items-center gap-3">
-                        <span className="w-2 h-8 bg-neon-green rounded-full" />
-                        EVENT WORKFLOW
+                <div className="w-full md:w-2/3 p-4 md:p-8 bg-cyber-dark overflow-y-auto custom-scrollbar relative">
+                    {/* Corner Decoration */}
+                    <div className="absolute top-0 right-0 w-24 h-24 border-r-4 border-t-4 border-cyber-green opacity-50" />
+
+                    <h3 className="text-2xl font-orbitron text-white mb-12 flex items-center gap-3 border-b border-gray-800 pb-4">
+                        <span className="text-cyber-green">01</span> // MISSION_PROTOCOLS
                     </h3>
 
-                    <div className="space-y-6 relative">
-                        {/* Vertical Line */}
-                        <div className="absolute left-4 md:left-6 top-4 bottom-4 w-0.5 bg-gradient-to-b from-neon-green/50 to-transparent" />
+                    <div className="space-y-8 relative pl-4 md:pl-0">
+                        {/* Connecting Line */}
+                        <div className="absolute left-8 top-4 bottom-4 w-1 bg-gray-800 hidden md:block" />
 
                         {event.workflow.map((step, index) => (
                             <motion.div
@@ -90,19 +106,22 @@ const EventDetailView = ({ event, onBack }: EventDetailViewProps) => {
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.3 + (index * 0.1) }}
-                                className="relative pl-12 md:pl-16"
+                                className="relative md:pl-24"
                             >
                                 {/* Number Node */}
-                                <div className="absolute left-0 top-0 w-8 h-8 md:w-12 md:h-12 bg-black border border-neon-green rounded-full flex items-center justify-center text-neon-green font-bold font-orbitron text-sm md:text-lg shadow-[0_0_10px_rgba(57,255,20,0.3)] z-10">
-                                    {index + 1}
+                                <div className="absolute left-0 top-0 w-16 h-16 bg-black border-2 border-cyber-green hidden md:flex items-center justify-center text-cyber-green font-bold font-orbitron text-2xl z-10 clip-corner-1">
+                                    {String(index + 1).padStart(2, '0')}
                                 </div>
 
                                 {/* Content Card */}
-                                <div className="bg-white/5 border border-white/10 p-6 rounded-xl hover:border-neon-green/50 transition-colors group">
-                                    <h4 className="text-xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">
+                                <div className="bg-white/5 p-6 border-l-4 border-gray-600 hover:border-cyber-green hover:bg-white/10 transition-all group">
+                                    <div className="md:hidden text-cyber-green font-orbitron text-xl mb-2 font-bold">
+                                        {String(index + 1).padStart(2, '0')}
+                                    </div>
+                                    <h4 className="text-xl font-bold font-orbitron text-white mb-2 group-hover:text-cyber-green transition-colors">
                                         {step.title}
                                     </h4>
-                                    <p className="text-gray-400 text-sm md:text-base">
+                                    <p className="text-gray-400 font-rajdhani text-lg">
                                         {step.description}
                                     </p>
                                 </div>
@@ -110,7 +129,7 @@ const EventDetailView = ({ event, onBack }: EventDetailViewProps) => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </motion.div>
     );
 };

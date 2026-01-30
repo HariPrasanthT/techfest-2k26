@@ -1,36 +1,168 @@
 @import "tailwindcss";
 
 @theme {
-  --color-neon-green: #39FF14;
-  --color-cyber-black: #000000;
+  --color-cyber-yellow: #FCEE0A;
+  --color-cyber-cyan: #00F0FF;
+  --color-cyber-red: #FF003C;
+  --color-cyber-purple: #7000FF;
+  --color-cyber-black: #050505;
+  --color-cyber-dark: #0a0a0a;
+  --color-cyber-green: #00FF41;
+
+  --color-cyber-white: #ffffff;
+
   --font-orbitron: 'Orbitron', sans-serif;
-  --font-inter: 'Inter', sans-serif;
-  
-  --animate-flicker: flicker 2s infinite;
-  
-  @keyframes flicker {
-    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
-      opacity: 0.99;
-    }
-    20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
-      opacity: 0.4;
-    }
+  --font-rajdhani: 'Rajdhani', sans-serif;
+
+  --animate-glitch: glitch 1s infinite linear;
+  --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Advanced Glitch Effect */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff00c1;
+  clip-path: inset(44% 0 61% 0);
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 #00fff9;
+  clip-path: inset(54% 0 30% 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip-path: inset(20% 0 80% 0);
+  }
+
+  20% {
+    clip-path: inset(60% 0 10% 0);
+  }
+
+  40% {
+    clip-path: inset(40% 0 50% 0);
+  }
+
+  60% {
+    clip-path: inset(80% 0 5% 0);
+  }
+
+  80% {
+    clip-path: inset(10% 0 70% 0);
+  }
+
+  100% {
+    clip-path: inset(30% 0 40% 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: inset(10% 0 60% 0);
+  }
+
+  20% {
+    clip-path: inset(30% 0 20% 0);
+  }
+
+  40% {
+    clip-path: inset(70% 0 10% 0);
+  }
+
+  60% {
+    clip-path: inset(20% 0 60% 0);
+  }
+
+  80% {
+    clip-path: inset(50% 0 30% 0);
+  }
+
+  100% {
+    clip-path: inset(0% 0 80% 0);
+  }
+}
+
+@keyframes scan {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 0% 200%;
   }
 }
 
 :root {
-  --background: #000000;
+  --background: #050505;
   --foreground: #39FF14;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  background-color: var(--color-cyber-black);
+  color: var(--color-cyber-green);
+  font-family: var(--font-rajdhani), sans-serif;
   overflow-x: hidden;
+  position: relative;
+  cursor: crosshair;
 }
 
-/* Cyberpunk Grid Background */
+/* Custom Cursor - Green */
+body,
+button,
+a {
+  cursor: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L12 24M0 12L24 12" stroke="%2339FF14" stroke-width="2"/></svg>') 12 12, crosshair;
+}
+
+button:hover,
+a:hover {
+  cursor: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="24" height="24" fill="%2339FF14" opacity="0.5"/><path d="M0 0L24 24M24 0L0 24" stroke="black" stroke-width="2"/></svg>') 12 12, pointer;
+}
+
+/* CYBERPUNK GRID OVERLAY */
 body::before {
   content: "";
   position: fixed;
@@ -38,22 +170,70 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    linear-gradient(rgba(57, 255, 20, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(57, 255, 20, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
+  background:
+    linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 0.9) 0%, rgba(5, 5, 5, 1) 100%);
+  background-size: 50px 50px, 50px 50px, 100% 100%;
   pointer-events: none;
   z-index: -1;
-  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }
 
-.glass-card {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(57, 255, 20, 0.3);
-  box-shadow: 0 0 15px rgba(57, 255, 20, 0.1);
+.bg-hero-pattern {
+  background-image:
+    repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(57, 255, 20, 0.05) 2px,
+      rgba(57, 255, 20, 0.05) 4px);
 }
 
-.neon-text {
-  text-shadow: 0 0 10px rgba(57, 255, 20, 0.8), 0 0 20px rgba(57, 255, 20, 0.4);
+/* UTILITIES */
+.clip-corner-1 {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+.clip-corner-2 {
+  clip-path: polygon(20px 0, 100% 0,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      0 100%,
+      0 20px);
+}
+
+.clip-trapezoid {
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+}
+
+.cyber-button {
+  background: var(--color-cyber-green);
+  color: black;
+  border: none;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+  transition: all 0.2s;
+  font-family: var(--font-orbitron);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.cyber-button:hover {
+  background: var(--color-cyber-white);
+  box-shadow: 5px 5px 0px var(--color-cyber-green);
+  transform: translate(-2px, -2px);
+}
+
+/* TEXT STYLES */
+.text-outline {
+  -webkit-text-stroke: 1px var(--color-cyber-cyan);
+  color: transparent;
+}
+
+.text-outline-green {
+  -webkit-text-stroke: 1px var(--color-cyber-green);
+  color: transparent;
+}
+
+.cyber-box-shadow {
+  box-shadow: 0 0 0 1px var(--color-cyber-green), 0 0 20px rgba(57, 255, 20, 0.1);
 }
