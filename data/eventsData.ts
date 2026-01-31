@@ -2,10 +2,10 @@ import { Terminal, Code, Mic, Lightbulb, Palette, Hammer } from 'lucide-react';
 
 export const eventsData = [
     {
-        id: "neural-cinema",
-        title: "Neural Cinema",
+        id: "dreams-in-digital",
+        title: "DREAMS IN DIGITAL",
         tagline: "Synthesize Dreams into Digital Reality",
-        description: "Direct the next generation of visual media. Utilize advanced generative AI nodes to fabricate short-form narrative streams.",
+        description: "Use AI tools for storytelling videos. Direct the next generation of visual media using advanced generative AI nodes.",
         icon: Terminal,
         workflow: [
             {
@@ -14,19 +14,19 @@ export const eventsData = [
             },
             {
                 title: "Synthesis Phase",
-                description: "Deploy Midjourney/Sora algorithms for visual construction."
+                description: "Deploy generative algorithms for visual construction."
             },
             {
                 title: "Final Render",
-                description: "Compile audio-visual data streams into a 90-second coherent sequence."
+                description: "Compile audio-visual data streams into a coherent sequence."
             }
         ]
     },
     {
-        id: "algorithm-arena",
-        title: "Algorithm Arena",
-        tagline: "Combat in the Code Colosseum",
-        description: "High-latency is not an option. Optimize logic and execute algorithms in a ruthless competitive environment.",
+        id: "tech-coders",
+        title: "TECH CODERS",
+        tagline: "Masters of Modern Coding",
+        description: "Masters of Modern Coding. High-latency is not an option. Optimize logic and execute algorithms in a ruthless competitive environment.",
         icon: Code,
         workflow: [
             {
@@ -44,10 +44,10 @@ export const eventsData = [
         ]
     },
     {
-        id: "cyber-speech",
-        title: "Cyber Speech",
-        tagline: "Broadcast Your Truth to the Network",
-        description: "Spontaneous data transmission. You have 60 seconds to upload your thoughts without signal degradation.",
+        id: "minute-mania",
+        title: "MINUTE-MANIA",
+        tagline: "Broadcast Your Truth within 60 Seconds",
+        description: "Spin the topic, grab the mic, and let your thoughts fly. Spontaneous data transmission without signal degradation.",
         icon: Mic,
         workflow: [
             {
@@ -65,10 +65,10 @@ export const eventsData = [
         ]
     },
     {
-        id: "prototype-expo",
-        title: "Prototype Expo",
-        tagline: "Manifest Hardware from the Ether",
-        description: "Showcase physical and digital artifacts. Push the boundaries of current-gen technology.",
+        id: "exhibit-your-innovation",
+        title: "EXHIBIT YOUR INNOVATION",
+        tagline: "Think beyond boundaries and ideas",
+        description: "Think beyond boundaries and ideas. Showcase physical and digital artifacts that push the limits of technology.",
         icon: Lightbulb,
         workflow: [
             {
@@ -86,15 +86,15 @@ export const eventsData = [
         ]
     },
     {
-        id: "visual-syntax",
-        title: "Visual Syntax",
-        tagline: "Construct Meaning through Design",
-        description: "Graphic design is the language of the future. Create propagandist or corporate aesthetic assets.",
+        id: "art-attack",
+        title: "ART ATTACK",
+        tagline: "Unleashing creativity through poster design",
+        description: "Unleashing creativity through poster design. Construct meaning through design and create aesthetic assets.",
         icon: Palette,
         workflow: [
             {
                 title: "The Brief",
-                description: "Receive client specifications for a brand or cause."
+                description: "Receive client specifications via the network."
             },
             {
                 title: "Design Matrix",
@@ -107,10 +107,10 @@ export const eventsData = [
         ]
     },
     {
-        id: "research-nexus",
-        title: "Research Nexus",
-        tagline: "Expand the Knowledge Base",
-        description: "Formal presentation of theoretical constructs and experimental data.",
+        id: "innov-forge",
+        title: "INNOV FORGE",
+        tagline: "Paper presentation on innovative ideas",
+        description: "Paper presentation on innovative ideas. Formal presentation of theoretical constructs and experimental data.",
         icon: Hammer,
         workflow: [
             {

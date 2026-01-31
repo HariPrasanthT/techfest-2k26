@@ -52,6 +52,12 @@ const HeroSection = () => {
                 >
                     CONTACT
                 </button>
+                <button
+                    onClick={() => document.getElementById('glimpses')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="hidden md:flex items-center gap-2 px-6 py-2 bg-black/50 border border-cyber-green/30 text-cyber-green font-orbitron text-sm tracking-wider hover:bg-cyber-green hover:text-black transition-all clip-corner-1"
+                >
+                    GLIMPSES
+                </button>
             </div>
 
 

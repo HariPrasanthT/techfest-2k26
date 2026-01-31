@@ -6,6 +6,7 @@ import WorkshopSpotlight from '@/components/WorkshopSpotlight';
 import RegistrationModal from '@/components/RegistrationModal';
 import Footer from '@/components/Footer';
 import SplitLine from '@/components/SplitLine';
+import MemoryArchive from '@/components/MemoryArchive';
 
 export default function Home() {
   return (
@@ -14,6 +15,8 @@ export default function Home() {
       <MissionTimeline />
       <SplitLine />
       <EventGrid />
+      <SplitLine />
+      <MemoryArchive />
       <SplitLine />
       <WorkshopSpotlight />
       <SplitLine />
